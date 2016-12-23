@@ -14,13 +14,13 @@
         <!--Food Pin-->
         <scene sceneID="4QP-Dl-EqO">
             <objects>
-                <tableViewController id="O60-dr-744" customClass="RestaurantTableViewController" customModule="D0239438" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="O60-dr-744" customClass="RestaurantTableViewController" customModule="D0562215" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="qvs-hr-PK6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="7E6-DT-YJw" customClass="RestaurantTableViewCell" customModule="D0239438" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="7E6-DT-YJw" customClass="RestaurantTableViewCell" customModule="D0562215" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7E6-DT-YJw" id="6zh-KM-lQ9">
@@ -104,7 +104,7 @@
         <!--New Restaurant-->
         <scene sceneID="mAM-Gq-e4h">
             <objects>
-                <tableViewController id="crS-AZ-hWQ" customClass="AddRestaurantController" customModule="D0239438" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="crS-AZ-hWQ" customClass="AddRestaurantController" customModule="D0562215" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ykX-VT-pkR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +309,7 @@
         <!--Restaurant Detail View Controller-->
         <scene sceneID="mRW-vm-G7O">
             <objects>
-                <viewController id="NyW-WO-8z7" customClass="RestaurantDetailViewController" customModule="D0239438" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NyW-WO-8z7" customClass="RestaurantDetailViewController" customModule="D0562215" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KUF-bs-uqx"/>
                         <viewControllerLayoutGuide type="bottom" id="7Km-01-IPG"/>
@@ -330,7 +330,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </mapView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="36" id="HWC-F2-fek" customClass="RestaurantDetailTableViewCell" customModule="D0239438" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="36" id="HWC-F2-fek" customClass="RestaurantDetailTableViewCell" customModule="D0562215" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="328" width="375" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWC-F2-fek" id="QSV-5K-4Um">
@@ -413,7 +413,7 @@
         <!--Map View Controller-->
         <scene sceneID="ixI-ks-Sue">
             <objects>
-                <viewController id="pbm-rs-XiB" customClass="MapViewController" customModule="D0239438" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pbm-rs-XiB" customClass="MapViewController" customModule="D0562215" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3R4-Yj-2tx"/>
                         <viewControllerLayoutGuide type="bottom" id="nkT-UF-VhL"/>
@@ -442,12 +442,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ufe-8o-vRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3537" y="757"/>
+            <point key="canvasLocation" x="2721" y="797"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="rmq-K1-npT">
             <objects>
-                <viewController id="3Lq-KJ-ghR" customClass="ReviewViewController" customModule="D0239438" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Lq-KJ-ghR" customClass="ReviewViewController" customModule="D0562215" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V2Z-T4-vHK"/>
                         <viewControllerLayoutGuide type="bottom" id="pih-WP-ATG"/>
