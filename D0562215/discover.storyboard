@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sHD-GW-ncP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discover-->
+        <scene sceneID="Mc2-Jr-Psp">
+            <objects>
+                <tableViewController id="cv1-p7-UcT" customClass="DiscoverTableViewController" customModule="D0562215" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9oG-Fr-he7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Zm4-D0-GiI">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zm4-D0-GiI" id="VjO-r0-4YO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cv1-p7-UcT" id="jZt-tP-JcC"/>
+                            <outlet property="delegate" destination="cv1-p7-UcT" id="hvC-V0-bAd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Discover" id="M1o-Vf-rHK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wlq-HU-Kt4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1063" y="1469"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="tJy-ww-hhF">
+            <objects>
+                <navigationController id="sHD-GW-ncP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover" selectedImage="check" id="1Me-dJ-9Af"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kLo-Ee-6JE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cv1-p7-UcT" kind="relationship" relationship="rootViewController" id="hoE-Kf-6eU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8n8-zm-Qvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="1469"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="check" width="28" height="28"/>
+        <image name="discover" width="25" height="19"/>
+    </resources>
+</document>
