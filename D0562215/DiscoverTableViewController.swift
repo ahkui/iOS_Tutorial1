@@ -1,42 +1,40 @@
 //
 //  DiscoverTableViewController.swift
-//  D0515119
+//  D0271874
 //
-//  Created by A-Lye on 12/9/16.
-//  Copyright © 2016 AppCoda. All rights reserved.
+//  Created by RTC23 on 2016/12/9.
+//  Copyright © 2016年 AppCoda. All rights reserved.
 //
 
 import UIKit
 import CloudKit
-
 class DiscoverTableViewController: UITableViewController {
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     var restaurants:[CKRecord] = []
-    @IBOutlet var spinner:UIActivityIndicatorView?
-    
+    var imageCache:NSCache = NSCache<CKRecordID, NSURL>()
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        refreshControl?.backgroundColor = UIColor.white
+        refreshControl?.tintColor = UIColor.gray
+        refreshControl?.addTarget(self, action: #selector(fetchRecordsFromCloud), for: UIControlEvents.valueChanged)
         fetchRecordsFromCloud()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        spinner?.hidesWhenStopped = true
-        spinner?.center = view.center
-        tableView.addSubview(spinner!)
-        spinner?.startAnimating()
+        spinner.hidesWhenStopped = true
+        spinner.center = view.center
+        tableView.addSubview(spinner)
+        spinner.startAnimating()
     }
     
-    func fetchRecordsFromCloud()
-    {
+    func fetchRecordsFromCloud() {
+        restaurants.removeAll()
+        tableView.reloadData()
+        
         let cloudContainer = CKContainer.default()
         let publicDatabase = cloudContainer.publicCloudDatabase
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Restaurant", predicate: predicate)
-        
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending:false)]
         let queryOperation = CKQueryOperation(query: query)
         queryOperation.desiredKeys = ["name"]
         queryOperation.queuePriority = .veryHigh
@@ -44,76 +42,25 @@ class DiscoverTableViewController: UITableViewController {
         queryOperation.recordFetchedBlock = { (record) -> Void in
             self.restaurants.append(record)
         }
-        
-        queryOperation.queryCompletionBlock = { (cursor,error) -> Void in
+        queryOperation.queryCompletionBlock = { (cursor, error) -> Void in
             if let error = error{
-                print("Failed to get data from iCloud -\(error.localizedDescription)")
+                print("Failed to get data from iClod - \(error.localizedDescription)")
                 return
             }
             
-            
             print("Successfully retrieve the data from iCloud")
-            OperationQueue.main.addOperation{
-                self.spinner?.stopAnimating()
+            OperationQueue.main.addOperation {
+                self.spinner.stopAnimating()
                 self.tableView.reloadData()
             }
         }
-        
-        //        publicDatabase.perform(query, inZoneWith: nil, completionHandler: {(results,error) -> Void in
-        //            if error != nil{
-        //                print(error)
-        //                return
-        //            }
-        //            if let results = results{
-        //                print("Completed the download of Restaurant data")
-        //                self.restaurants = results
-        //                self.tableView.reloadData()
-        //            }
-        //        })
-        
         publicDatabase.add(queryOperation)
-    }
-    
-    override func tableView(_ tableView:UITableView, numberOfRowsInSection numberOfRowsInSectionsection:Int) -> Int{
-        return restaurants.count
-    }
-    var imageCache:NSCache = NSCache<CKRecordID, NSURL>()
-    
-    override func tableView(_ tableView:UITableView,cellForRowAt indexPath:IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let restaurant = restaurants[indexPath.row]
-        cell.textLabel?.text = restaurant.object(forKey: "name") as? String
-        cell.imageView?.image = UIImage(named:"photoalbum")
-        if let imageFileURL = imageCache.object(forKey: restaurant.recordID) {
-            print("img get from cache")
-            if let imageData = try? Data.init(contentsOf: imageFileURL as URL){
-                cell.imageView?.image = UIImage(data: imageData)
+        if let refreshControl = self.refreshControl {
+            if refreshControl.isRefreshing{
+                refreshControl.endRefreshing()
             }
         }
-        else {
-            let publicDatabase = CKContainer.default().publicCloudDatabase
-            let fetchRecordsImageOperation = CKFetchRecordsOperation(recordIDs: [restaurant.recordID])
-            fetchRecordsImageOperation.perRecordCompletionBlock = {
-                (record,recordID,error) -> Void in
-                if let error = error {
-                    print("error",error)
-                    return
-                }
-                if let restaurantRecord = record {
-                    OperationQueue.main.addOperation {
-                        if let image = restaurantRecord.object(forKey: "image"){
-                            let imageAsset = image as! CKAsset
-                            
-                            if let imageData = try?Data.init(contentsOf: imageAsset.fileURL){
-                                cell.imageView?.image = UIImage(data: imageData)
-                                self.imageCache.setObject(imageAsset.fileURL as NSURL, forKey: restaurant.recordID)
-                            }
-                        }
-                    }
-                }
-            }
-            publicDatabase.add(fetchRecordsImageOperation)}
-        return cell
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -125,18 +72,59 @@ class DiscoverTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return restaurants.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        // Configure the cell...
+        let restaurant = restaurants[indexPath.row]
+        cell.textLabel?.text = restaurant.object(forKey: "name") as? String
+        
+        cell.imageView?.image = UIImage(named: "photoalbum")
+        
+        if let imageFileURL = imageCache.object(forKey: restaurant.recordID) {
+            print("Get image from cache")
+            if let imageData = try? Data.init(contentsOf: imageFileURL as URL){
+                cell.imageView?.image = UIImage(data: imageData)
+            }
+        }else {
+            
+            let publicDatabase = CKContainer.default().publicCloudDatabase
+            let fetchRecordsImageOperation = CKFetchRecordsOperation(recordIDs:[restaurant.recordID])
+            fetchRecordsImageOperation.desiredKeys = ["image"]
+            fetchRecordsImageOperation.queuePriority = .veryHigh
+            
+            fetchRecordsImageOperation.perRecordCompletionBlock = { (record, recordID, error) -> Void in
+                if let error = error{
+                    print("Failed to get restaurant image: \(error.localizedDescription)")
+                    return
+                }
+                if let restaurantRecord = record {
+                    OperationQueue.main.addOperation {
+                        if let image = restaurantRecord.object(forKey: "image") {
+                            let imageAsset = image as! CKAsset
+                            
+                            if let imageData = try? Data.init(contentsOf:  imageAsset.fileURL) {
+                                cell.imageView?.image = UIImage(data: imageData)
+                            }
+                            self.imageCache.setObject(imageAsset.fileURL as NSURL, forKey: restaurant.recordID)
+                        }
+                    }
+                }
+            }
+            publicDatabase.add(fetchRecordsImageOperation)
+        }
+        return cell
+    }
+    
     
     /*
      // Override to support conditional editing of the table view.

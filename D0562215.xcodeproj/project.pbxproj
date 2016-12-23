@@ -12,6 +12,8 @@
 		4474F8D31DFACC0A00A5A83B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474F8D21DFACC0A00A5A83B /* WebViewController.swift */; };
 		4474F8D61DFADC3E00A5A83B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4474F8D51DFADC3E00A5A83B /* CloudKit.framework */; };
 		4474F8D81DFADFDB00A5A83B /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474F8D71DFADFDB00A5A83B /* DiscoverTableViewController.swift */; };
+		A449C2E81E0D59AC00058A6F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A449C2EA1E0D59AC00058A6F /* InfoPlist.strings */; };
+		A449C2ED1E0D59AC00058A6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A449C2EF1E0D59AC00058A6F /* Localizable.strings */; };
 		A77C3C3D1DF1957E00F66183 /* discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77C3C3C1DF1957E00F66183 /* discover.storyboard */; };
 		A77C3C401DF195CA00F66183 /* about.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77C3C3E1DF195CA00F66183 /* about.storyboard */; };
 		A77C3C421DF195F600F66183 /* favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77C3C411DF195F600F66183 /* favorite.storyboard */; };
@@ -36,6 +38,14 @@
 		4474F8D41DFADC3800A5A83B /* D0562215.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = D0562215.entitlements; sourceTree = "<group>"; };
 		4474F8D51DFADC3E00A5A83B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4474F8D71DFADFDB00A5A83B /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		A449C2E41E0D59AC00058A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/about.strings; sourceTree = "<group>"; };
+		A449C2E51E0D59AC00058A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		A449C2E91E0D59AC00058A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A449C2EE1E0D59AC00058A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A449C2F01E0D59BC00058A6F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/about.strings"; sourceTree = "<group>"; };
+		A449C2F11E0D59BC00058A6F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		A449C2F21E0D59BD00058A6F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A449C2F31E0D59BD00058A6F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A77C3C3C1DF1957E00F66183 /* discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = discover.storyboard; sourceTree = "<group>"; };
 		A77C3C3F1DF195CA00F66183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/about.storyboard; sourceTree = "<group>"; };
 		A77C3C411DF195F600F66183 /* favorite.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = favorite.storyboard; sourceTree = "<group>"; };
@@ -97,6 +107,8 @@
 		F4D336C01D2E4309003010DD /* D0562215 */ = {
 			isa = PBXGroup;
 			children = (
+				A449C2EF1E0D59AC00058A6F /* Localizable.strings */,
+				A449C2EA1E0D59AC00058A6F /* InfoPlist.strings */,
 				4474F8D41DFADC3800A5A83B /* D0562215.entitlements */,
 				278C49FD1DE84E8E00ECB3C1 /* D0562215.xcdatamodeld */,
 				F4D336C11D2E4309003010DD /* AppDelegate.swift */,
@@ -193,7 +205,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A77C3C3D1DF1957E00F66183 /* discover.storyboard in Resources */,
+				A449C2E81E0D59AC00058A6F /* InfoPlist.strings in Resources */,
 				F4D336C91D2E4309003010DD /* Assets.xcassets in Resources */,
+				A449C2ED1E0D59AC00058A6F /* Localizable.strings in Resources */,
 				A77C3C401DF195CA00F66183 /* about.storyboard in Resources */,
 				F4D336C71D2E4309003010DD /* Main.storyboard in Resources */,
 				A77C3C421DF195F600F66183 /* favorite.storyboard in Resources */,
@@ -226,10 +240,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A449C2EA1E0D59AC00058A6F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A449C2E91E0D59AC00058A6F /* de */,
+				A449C2F21E0D59BD00058A6F /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A449C2EF1E0D59AC00058A6F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A449C2EE1E0D59AC00058A6F /* de */,
+				A449C2F31E0D59BD00058A6F /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A77C3C3E1DF195CA00F66183 /* about.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A77C3C3F1DF195CA00F66183 /* Base */,
+				A449C2E41E0D59AC00058A6F /* de */,
+				A449C2F01E0D59BC00058A6F /* zh-Hant */,
 			);
 			name = about.storyboard;
 			sourceTree = "<group>";
@@ -238,6 +272,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F4D336C61D2E4309003010DD /* Base */,
+				A449C2E51E0D59AC00058A6F /* de */,
+				A449C2F11E0D59BC00058A6F /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -345,7 +381,7 @@
 				INFOPLIST_FILE = D0562215/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fcu.iecs.-";
+				PRODUCT_BUNDLE_IDENTIFIER = fcu.iecs.D0515211;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -360,7 +396,7 @@
 				INFOPLIST_FILE = D0562215/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "fcu.iecs.-";
+				PRODUCT_BUNDLE_IDENTIFIER = fcu.iecs.D0515211;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

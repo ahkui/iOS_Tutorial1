@@ -34,7 +34,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Discover" id="M1o-Vf-rHK"/>
                     <connections>
-                        <outlet property="spinner" destination="O7S-e4-luO" id="tgy-UI-FSA"/>
+                        <outlet property="spinner" destination="O7S-e4-luO" id="PDI-Iq-J35"/>
                         <outlet property="tableView" destination="9oG-Fr-he7" id="Brs-li-5fX"/>
                     </connections>
                 </tableViewController>

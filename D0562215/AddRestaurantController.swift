@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -88,7 +89,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         print("Type: \(typeTextField.text)")
         print("Location: \(locationTextField.text)")
         print("Have you been here: \(isVisited)")
-
+        
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             let restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
             restaurant.name = nameTextField.text
@@ -101,13 +102,34 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
                     restaurant.image = NSData(data: imageData)
                 }
             }
-            
+            saveRecordToCloud(restaurant: restaurant)
             appDelegate.saveContext()
         }
         
         
-        
-        dismiss(animated: true, completion: nil)
+                dismiss(animated: true, completion: nil)
+    }
+
+    func saveRecordToCloud(restaurant:RestaurantMO) -> Void {
+        let record = CKRecord(recordType: "Restaurant")
+        record.setValue(restaurant.name, forKey: "name")
+        record.setValue(restaurant.type, forKey: "type")
+        record.setValue(restaurant.location, forKey: "location")
+        record.setValue(restaurant.phone, forKey: "phone")
+        let imageData = restaurant.image as! Data
+        let originalImage = UIImage(data: imageData)!
+        let scaledFactor = (originalImage.size.width > 1024) ? 1024 / originalImage.size.width : 1.0
+        let scaledImage = UIImage(data: imageData, scale: scaledFactor)!
+        let imageFilePath = NSTemporaryDirectory() + restaurant.name!
+        let imageFileURL = URL(fileURLWithPath: imageFilePath)
+        try? UIImageJPEGRepresentation(scaledImage, 0.8)?.write(to: imageFileURL)
+        let imageAsset = CKAsset(fileURL: imageFileURL)
+        record.setValue(imageAsset, forKey: "image")
+        let publicDatabase = CKContainer.default().publicCloudDatabase
+        publicDatabase.save(record, completionHandler: {
+            (recird,error) -> Void in
+            try?FileManager.default.removeItem(at: imageFileURL)
+        })
     }
     
     @IBAction func toggleBeenHereButton(sender: UIButton) {
