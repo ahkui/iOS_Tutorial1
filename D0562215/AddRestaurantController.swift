@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 class AddRestaurantController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet var photoImageView: UIImageView!
     
     @IBOutlet var nameTextField:UITextField!
@@ -23,21 +23,21 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -51,7 +51,7 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             }
         }
     }
-
+    
     // MARK: - Image Picker Delegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -83,12 +83,15 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
             present(alertController, animated: true, completion: nil)
+            return
         }
+        
         
         print("Name: \(nameTextField.text)")
         print("Type: \(typeTextField.text)")
         print("Location: \(locationTextField.text)")
         print("Have you been here: \(isVisited)")
+        
         
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate){
             let restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
@@ -107,9 +110,10 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         }
         
         
-                dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
+        
     }
-
+    
     func saveRecordToCloud(restaurant:RestaurantMO) -> Void {
         let record = CKRecord(recordType: "Restaurant")
         record.setValue(restaurant.name, forKey: "name")
@@ -136,32 +140,32 @@ class AddRestaurantController: UITableViewController, UIImagePickerControllerDel
         // Yes button clicked
         if sender == yesButton {
             isVisited = true
-          
+            
             // Change the backgroundColor property of yesButton to red
             yesButton.backgroundColor = UIColor(red: 218.0/255.0, green: 100.0/255.0, blue: 70.0/255.0, alpha: 1.0)
             
             // Change the backgroundColor property of noButton to gray
             noButton.backgroundColor = UIColor(red: 218.0/255.0, green: 223.0/255.0, blue: 225.0/255.0, alpha: 1.0)
-
+            
         } else if sender == noButton {
             isVisited = false
-
+            
             // Change the backgroundColor property of yesButton to gray
             yesButton.backgroundColor = UIColor(red: 218.0/255.0, green: 223.0/255.0, blue: 225.0/255.0, alpha: 1.0)
-
+            
             // Change the backgroundColor property of noButton to red
             noButton.backgroundColor = UIColor(red: 218.0/255.0, green: 100.0/255.0, blue: 70.0/255.0, alpha: 1.0)
         }
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

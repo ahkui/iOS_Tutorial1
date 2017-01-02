@@ -12,6 +12,7 @@
 		4474F8D31DFACC0A00A5A83B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474F8D21DFACC0A00A5A83B /* WebViewController.swift */; };
 		4474F8D61DFADC3E00A5A83B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4474F8D51DFADC3E00A5A83B /* CloudKit.framework */; };
 		4474F8D81DFADFDB00A5A83B /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4474F8D71DFADFDB00A5A83B /* DiscoverTableViewController.swift */; };
+		571CA5DB1E167590007A96E5 /* aboutfoodpin.png in Resources */ = {isa = PBXBuildFile; fileRef = 571CA5DD1E167590007A96E5 /* aboutfoodpin.png */; };
 		A449C2E81E0D59AC00058A6F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A449C2EA1E0D59AC00058A6F /* InfoPlist.strings */; };
 		A449C2ED1E0D59AC00058A6F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A449C2EF1E0D59AC00058A6F /* Localizable.strings */; };
 		A77C3C3D1DF1957E00F66183 /* discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A77C3C3C1DF1957E00F66183 /* discover.storyboard */; };
@@ -38,6 +39,9 @@
 		4474F8D41DFADC3800A5A83B /* D0562215.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = D0562215.entitlements; sourceTree = "<group>"; };
 		4474F8D51DFADC3E00A5A83B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4474F8D71DFADFDB00A5A83B /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		571CA5DC1E167590007A96E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/aboutfoodpin.png; sourceTree = "<group>"; };
+		571CA5DF1E167600007A96E5 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/aboutfoodpin.png; sourceTree = "<group>"; };
+		571CA5E01E167600007A96E5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hant"; path = "zh-Hant.lproj/aboutfoodpin.png"; sourceTree = "<group>"; };
 		A449C2E41E0D59AC00058A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/about.strings; sourceTree = "<group>"; };
 		A449C2E51E0D59AC00058A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		A449C2E91E0D59AC00058A6F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -78,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		571CA5CC1E1674E6007A96E5 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				571CA5DD1E167590007A96E5 /* aboutfoodpin.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		F405E4C61D5C09500042A934 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		F4D336C01D2E4309003010DD /* D0562215 */ = {
 			isa = PBXGroup;
 			children = (
+				571CA5CC1E1674E6007A96E5 /* images */,
 				A449C2EF1E0D59AC00058A6F /* Localizable.strings */,
 				A449C2EA1E0D59AC00058A6F /* InfoPlist.strings */,
 				4474F8D41DFADC3800A5A83B /* D0562215.entitlements */,
@@ -188,6 +201,8 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				"zh-Hant",
 			);
 			mainGroup = F4D336B51D2E4309003010DD;
 			productRefGroup = F4D336BF1D2E4309003010DD /* Products */;
@@ -209,6 +224,7 @@
 				F4D336C91D2E4309003010DD /* Assets.xcassets in Resources */,
 				A449C2ED1E0D59AC00058A6F /* Localizable.strings in Resources */,
 				A77C3C401DF195CA00F66183 /* about.storyboard in Resources */,
+				571CA5DB1E167590007A96E5 /* aboutfoodpin.png in Resources */,
 				F4D336C71D2E4309003010DD /* Main.storyboard in Resources */,
 				A77C3C421DF195F600F66183 /* favorite.storyboard in Resources */,
 			);
@@ -240,6 +256,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		571CA5DD1E167590007A96E5 /* aboutfoodpin.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				571CA5DC1E167590007A96E5 /* Base */,
+				571CA5DF1E167600007A96E5 /* de */,
+				571CA5E01E167600007A96E5 /* zh-Hant */,
+			);
+			name = aboutfoodpin.png;
+			sourceTree = "<group>";
+		};
 		A449C2EA1E0D59AC00058A6F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -381,9 +407,10 @@
 				INFOPLIST_FILE = D0562215/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fcu.iecs.D0515211;
+				PRODUCT_BUNDLE_IDENTIFIER = fcu.iecs.D0562215;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -396,9 +423,10 @@
 				INFOPLIST_FILE = D0562215/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = fcu.iecs.D0515211;
+				PRODUCT_BUNDLE_IDENTIFIER = fcu.iecs.D0562215;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
